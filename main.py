@@ -257,7 +257,7 @@ async def startup_event():
 @app.get("/")
 async def root():
     """Serve the frontend"""
-    frontend_path = Path(__file__).parent / ".." / "frontend" / "index.html"
+    frontend_path = Path(__file__).parent / "index.html"
     frontend_path = frontend_path.resolve()
     if frontend_path.exists():
         return FileResponse(frontend_path)
@@ -267,7 +267,7 @@ async def root():
 @app.get("/app.js")
 async def serve_js():
     """Serve the frontend JavaScript"""
-    js_path = Path(__file__).parent / ".." / "frontend" / "app.js"
+    js_path = Path(__file__).parent / "app.js"
     js_path = js_path.resolve()
     if js_path.exists():
         return FileResponse(js_path, media_type="application/javascript")
